@@ -17,7 +17,6 @@
         }
         curSize = 0;
         users = [];
-
     }
 
     class Admin extends User {
@@ -32,19 +31,26 @@
         deleteUser(id) {
 
         }
-
     }
-
 
     let yojji = new Company();
 
-    let admin = new Admin();
+    let prs = new User('adam', 'smith', false);
+    
+    if(prs.isAdmin === false) {
+        console.log('false');
+        return prs;
+        // superUser.createUser('den', 'umi');
+    } else {
+        let prs = new Admin();
+        console.log('true');
+        return prs;
+    }
 
-    yojji.users.push(admin.createUser('adam', 'smith'));
+    yojji.users.push(prs.createUser('tom', 'tyler'));
 
     yojji.curSize++;
    
-
     console.log(yojji.users);
 
     window.Company = Company;
