@@ -18,20 +18,14 @@
         curSize = 0;
         users = [];
 
-        users = curSize.length;
     }
 
-    class SuperUser extends User {
-        constructor(name, lastName, id) {
-            super(name, lastName, id)
-        }
+    class Admin extends User {
 
         #token = 'secret token';
 
         createUser(name, lastName) {
-            const user = new User;
-            user = {name, lastName};
-            Company.curSize += 1;
+            let user = new User(name, lastName);
             return user;
         }
         
@@ -41,14 +35,17 @@
 
     }
 
-    // SuperUser.createUser('adam', 'smith');
-    // console.log();
 
-    let yojji = new Company;
+    let yojji = new Company();
 
-    SuperUser.createUser(adam, smith);
+    let admin = new Admin();
 
-    console.log(yojji.curSize);
+    yojji.users.push(admin.createUser('adam', 'smith'));
+
+    yojji.curSize++;
+   
+
+    console.log(yojji.users);
 
     window.Company = Company;
 })();
